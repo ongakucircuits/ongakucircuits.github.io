@@ -1,0 +1,57 @@
+---
+layout: post
+title: "24th April 2026 - Initial project ideas and ramble"
+subtitle: "A project log for the Polyphonic Analogue Synthesizer"
+date: 2026-04-24
+background: '/img/posts/20260424/rs-505_vco.png'
+---
+
+<p>It's currently exam season, and I'm doing everything in my power to distract myself from the impending doom. So I thought I'd create this page to properly articulate my thoughts that have been swimming around in my head and on little pieces of paper around my room.</p>
+
+<p>Having floated the idea of building some sort of analog synthesiser over the summer since September last year, and as ideas for development kept coming I decided the long summer break of almost 4 months would be a good opportunity to fit this in.</p>
+
+<p>I suppose it would be a good idea to list my project aims and goals to make the scope of my project clear (and for me to refer back to when things inevitably go wrong).</p>
+
+
+
+<h2 class="section-heading">1 - To build something that can reliably be called a "musical instrument".</h2>
+
+<p>When you think of a typical student synthesiser project, you typically think of a single oscillator or maybe a microcontroller rushedly connected to an audio amplifier on a breadboard, producing a harsh, constant tone that goes on for hours, making you leave the lab with a headache. Yes, while it does produce tones, there's a big gulf between this and what you'd see in even the cheapest commercially available synthesisers of today. A musical synthesiser should be interfaceable with a typical 12-tone piano keyboard, stay very closely in tune, and feature multiple voices and subtractive stages at the least. </p>
+
+<p>The great thing about building a synth at the circuit level is you have complete choice over the scale - but this paradox of choice might be so much a negative thing as a positive one. 4 months is not a lot of time to work with.</p>
+
+<p>From my calculations and experimentation, even a 0.1% variation in frequency is enough for the human ear to recognise as "out of tune". 0.1% frequency drift is already outside the range suggested on datasheets of common frequency generator and timer chips such as the NE555, so tuning is likely going to be one of the biggest obstacles in this project.</p>
+
+<p>Another thing that musical instruments have that's a bit more difficult to define is character. Every piano, every violin, every model of analog synthesiser has a unique and characteristic sound that makes them loved. If I can build a synthesiser that feels like it's 'alive' rather than just a bunch of components connected together then I'll be more than happy with the project outcome.</p>
+
+
+<h2 class="section-heading">2 - To deepen my expertise in electronic design at a level that uni could never teach.</h2>
+
+<p>I was lucky enough to have a chat with YouTube DIY synth legend Moritz Klein at Synthfest earlier this year, and I remember asking him a question over lunch - "How do you come up with your designs?". His answer was one I thought was cliché at the time but I think hides real truth - "Learning circuit design is like learning a language. You learn a few words, then you start putting them together into phrases, then into sentences. But just like learning a language, you to go out there and practice to learn it properly. And then suddenly you'll start learning the most important parts more clearly."</p>
+
+<p>I couldn't agree with this metaphor more. During my first year of university, we had six months of circuit lectures followed by a one month electronics project. In that project, I led the design and development of several analog circuits, and I genuinely believe I learnt more about analog design in the one month project than I did in six months of lectures. Not because the lectures themselves were bad in any way, the teaching was fantastic, just because of how invaluable the independent work and hands-on development was in helping me understand circuit design in a completely different dimension.</p>
+
+<p>I am hopeful that 4 months of technical work will at least teach me something about analog circuit design that I wouldn't be able to learn from sitting in a lecture theatre, or indeed a summer placement at a company with strict deadlines to meet.</p>
+
+
+<h2 class="section-heading">3 - To stay within a budget of £500</h2>
+
+<p>£500 is a lot of money for a student project, and I'm not expecting to use all of it. This is simply the amount that I will receive in funding from the university over the project period. Unfortunately I'll probably need to use a significant portion of this just to travel to and from White City. Transport in London is bloody expensive.</p>
+
+
+<h2 class="section-heading">4 (the most important one) - To actually finish the project</h2>
+<p>Of course, nothing above really matters unless I'm able to finish the project. Over the next couple of weeks where I don't have very much time to do any hands-on work, I will create a framework of more specific requirements and deadlines to meet, to make sure the project is completable (and possibly so I can get some holiday before term starts!)</p>
+
+
+<h2 class="section-heading">Some initial research into classic oscillator designs</h2>
+<p>This is a circuit I've been studying this week. It's the master oscillator from the Roland RS-505 Paraphonic synthesiser, which generates a 2MHz square wave from a DC voltage. This master clock is ultimately used to derive the frequencies of all 49 keys on the RS-505's keyboard using clock division performed by logic ICs.</p>
+
+<img class="img-fluid" src="{{ site.baseurl }}/img/posts/20260424/rs-505_vco.png" alt="The master clock generator of the RS-505 synthesiser">
+<span class="caption text-muted">The master clock generator of the RS-505 synthesiser</span>
+
+<p>Despite being based around an LC tank rather than a crystal, it supposedly achieves excellent frequency stability thanks to the negative feedback from transistor Q3 (among other things). The need for this kind of circuit instead of a fixed-frequency crystal oscillator, which would require significantly fewer components, is to allow modulation of the clock frequency using a DC bias and the varactor diode - this is how the synth produces vibrato.</p>
+
+<p>An interesting quirk with this circuit is that it uses Vcc = 0V and Vee = -12V, such that the highest supply potential is ground (rather than the traditional Vcc=12V and Vee=0V). Roland says that this is to improve oscillator stability from the power supply, as capacitive and inductive effects are reduced when the positive supply rail is at the same potential as the surroundings. Of course, this entire circuit would still work with Vcc=12V and Vee=0V because potential is relative, and the circuit is probably easier to analyse in this way. Really interesting design decision by Roland, it'll be interesting to see how much of an impact this has on the oscillators I build.</p>
+
+
+<p>A blog post by Charlie Theobald.</p>

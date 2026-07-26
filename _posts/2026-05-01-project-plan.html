@@ -1,0 +1,87 @@
+---
+layout: post
+title: "1st May 2026 - Project plan (and some post through my letterbox)"
+subtitle: "A project log for the Polyphonic Analogue Synthesizer"
+date: 2026-05-01
+background: '/img/posts/20260424/rs-505_vco.png'
+---
+
+<p>As predicted, none of the exams I've had this week went particularly well. But maybe I'll surprise myself like last year when results come out.</p>
+
+<h2 class="section-heading">This week</h2>
+
+<p>Not much progress this week due to exams. As mentioned in last week's update, I hope to start building from around mid-May.
+
+When I haven't been in Laplace transform jail, this week I've been thinking about project timelines and also about possible designs for my VCO. I'll start with discussing project timelines first.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Project stage</th>
+      <th>Things to do</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VCO and oscillator core</td>
+      <td>	Decide on oscillator type, design wave generator circuits, prototype on breadboards, design PCBs, test initial prototype</td>
+      <td>31st May</td>
+    </tr>
+
+    <tr>
+      <td>MIDI control integration</td>
+      <td>Linking the VCO to a MIDI source, implement polyphony</td>
+      <td>14th June</td>
+    </tr>
+
+    <tr>
+      <td>Design of envelope generator, VCA and VCF</td>
+      <td>Decide on VCA/VCF types, decide between analog / digital implementations, prototype on breadboards, design PCBs, test initial prototype</td>
+      <td>11th July</td>
+    </tr>
+
+    <tr>
+      <td>Buffer period for integration testing / parts delay</td>
+      <td>Combining VCO, VCA and VCF designs to work effectively together, analysis of noise performance, hopefully prototype design PCBs have arrived</td>
+      <td>31st July</td>
+    </tr>
+
+    <tr>
+      <td>Improving stability</td>
+      <td>Adding improved power supply and temperature compensation for more advanced features later</td>
+      <td>mid Aug</td>
+    </tr>
+
+    <tr>
+      <td>"Nice-to-haves"</td>
+      <td>Noise generator, LFO, sample and hold, frequency modulated / sync VCOs</td>
+      <td>Sep</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If I can get to having a good VCO, VCF and VCA by the end of July, I'll be happy, as this will give me a solid two months to add interesting improvements. I have an assessed university project from May-June, and a couple of internships over the summer, both of which should come first, so I've given extra time to some of the earlier deadlines.</p>
+
+<p>This plan almost definitely will change during the course of the project. This is my first build at this scale, and my first time making a synthesizer, so I'm prepared to anticipate and embrace delays.</p>
+
+<h2 class="section-heading">In the post</h2>
+
+<img class="img-fluid" src="{{ site.baseurl }}/img/posts/20260501/cv-12.jpg" alt="CV-12 ORAC chip from Midimuso (£17.49 as part of a kit containing a PCB and other components)">
+<span class="caption text-muted">CV-12 ORAC chip from Midimuso (£17.49 as part of a kit containing a PCB and other components)</span>
+
+<p>The CV-12 is a remarkable chip, which is capable of converting digital MIDI signals into a CV (control voltage) and a trigger (a short pulse that tells an envelope generator / amplifier when a MIDI Note On event is detected).</p>
+
+<p>Many MIDI to CV/Trig converters are very expensive, with good ones costing around £100 each. These are intended more for the Eurorack market rather than for ground-up electronics builds, so don't really fit my requirements or budget.</p>
+
+<p>What makes the CV-12 special is that it is capable of polyphonic MIDI to CV conversion, meaning it is capable of outputting many control voltages (corresponding to many different notes) at once. This means it becomes possible to play chords from the get-go. It's also fully configurable with various mode changes. Polyphony can be sacrificed for additional MIDI parameters like note pressure and pitch bend, and even VCF parameters like cutoff / resonance. Considering what this thing can do, £17 is an absolute bargain.</p>
+
+<img class="img-fluid" src="{{ site.baseurl }}/img/posts/20260501/smdpracticekit.jpg" alt="SMD soldering practice kit, £0.75 from AliExpress">
+<span class="caption text-muted">SMD soldering practice kit, £0.75 from AliExpress</span>
+
+<p>I also bought an SMD soldering practice kit, if not for learning how to solder SMD components for this project then just for a bit of fun. This consists of a small, and a variety of SMD resistors, capacitors and chips in different sizes to practice with.</p>
+
+<p>I don't think I quite realised just how small SMD components really are - whilst the 1206 and 0805 size look manageable to solder with my iron, the smallest 0402 size ones are absolutely tiny.</p>
+
+<p>A blog post by Charlie Theobald.
+
