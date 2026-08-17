@@ -1,0 +1,16 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+  - title: "Projects"
+    url: /projects/
+  - title: "Blog Posts"
+    url: /posts/
+  - title: "Shop"
+    url: /shop/
+  - title: "My portfolio"
+    url: /my-portfolio
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
