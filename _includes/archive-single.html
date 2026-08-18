@@ -24,6 +24,11 @@
       {% else %}
         <a class="u-url" href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
+      {% if post.difficulty %}
+        <span class="project-difficulty {{ post.difficulty | downcase }}">
+          <span class="circle"></span> {{ post.difficulty }}
+      </span>
+      {% endif %}
     </h2>
     {% include page__meta.html locale=locale type=include.type %}
     {% if post.excerpt %}<p class="archive__item-excerpt p-summary" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}

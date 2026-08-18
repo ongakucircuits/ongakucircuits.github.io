@@ -7,3 +7,24 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.project-difficulty {
+  font-size: 0.6em;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.project-difficulty .circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  margin-right: 5px;
+}
+
+.beginner .circle { border-color: #28a745; }
+.intermediate .circle { border-color: #e69f07; }
+.advanced .circle { border-color: #fd1414; }
+.expert .circle { border-color: #7c0a50; }
