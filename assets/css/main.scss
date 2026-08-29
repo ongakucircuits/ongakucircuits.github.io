@@ -1,13 +1,39 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
-search: false
+# Front matter required for Jekyll Sass compilation
 ---
 
 @charset "utf-8";
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
 
+/* Custom overrides must go BELOW imports */
+
+/* 1. Expand standard content width */
+#main {
+  max-width: 90% !important; /* Expands outer page container */
+}
+
+.page__inner-wrap {
+  max-width: 100% !important; /* Removes inner text bottleneck */
+}
+
+/* 2. Fix wide layout screen touching */
+body.layout--single.wide,
+body.wide {
+  box-sizing: border-box !important;
+  padding-left: 3em !important;
+  padding-right: 3em !important;
+}
+
+body.layout--single.wide #main,
+body.wide #main {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Custom UI elements */
 .project-difficulty {
   font-size: 0.6em;
   margin-left: 10px;
